@@ -9,6 +9,10 @@ To-Do List (intentionally buggy) — Практична робота №1
 Шукайте коментарі "BUG:" нижче — вони пояснюють, у чому проблема.
 """
 
+"""
+Тестова зміна для перевірки git
+"""
+
 class TodoApp:
     def __init__(self, root):
         self.root = root
