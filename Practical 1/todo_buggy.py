@@ -13,6 +13,8 @@ To-Do List (intentionally buggy) — Практична робота №1
 Тестова зміна для перевірки git
 """
 
+print("Тестова зміна для перевірки конфліктів git")  
+
 class TodoApp:
     def __init__(self, root):
         self.root = root
