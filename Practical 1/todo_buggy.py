@@ -30,10 +30,22 @@ class TodoApp:
         self.entry.insert(0, "введіть тут нове завдання")
         self.entry.pack(anchor="w")
 
-        # Список завдань + (навмисно) захований скролбар
-        self.listbox = tk.Listbox(self.frame, height=10, activestyle="none")
-        self.listbox.pack(fill="both", expand=True, pady=(8, 8))
-        # BUG(UI/UX-3): Скролбар не додано взагалі -> при великій кількості елементів користувач не бачить, що список прокручується.
+        # Список завдань + нормальний скролбар
+        list_frame = tk.Frame(self.frame)
+        list_frame.pack(fill="both", expand=True, pady=(8, 8))
+
+        scrollbar = tk.Scrollbar(list_frame)
+        scrollbar.pack(side="right", fill="y")
+
+        self.listbox = tk.Listbox(
+            list_frame,
+            height=10,
+            activestyle="none",
+            yscrollcommand=scrollbar.set
+        )
+        self.listbox.pack(side="left", fill="both", expand=True)
+
+        scrollbar.config(command=self.listbox.yview)
 
         # Панель кнопок (спеціально у незвичному порядку)
         btns = tk.Frame(self.frame)
